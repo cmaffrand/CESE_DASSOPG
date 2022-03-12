@@ -76,11 +76,12 @@ def timebetweendates(d1,d2):
             time.append(int(d1[0]) - int(d2[0]))
         else:
             time.append(diasmes(int(d2[1])) + int(d1[0]) - int(d2[0]))
-            maux = 1
+            if int(d2[1]) == 12:
+                yaux = 1
         if int(d1[1]) >= int(d2[1]):
-            time.append(int(d1[1]) - int(d2[1]) - maux)
+            time.append(int(d1[1]) - int(d2[1]))
         else:
-            time.append(12 + int(d1[1]) - int(d2[1]) - maux)
+            time.append(12 + int(d1[1]) - int(d2[1]))
             yaux = 1
         time.append(int(d1[2]) - int(d2[2]) - yaux)
     else:
@@ -88,11 +89,12 @@ def timebetweendates(d1,d2):
             time.append(int(d2[0]) - int(d1[0]))
         else:
             time.append(diasmes(int(d1[1])) + int(d2[0]) - int(d1[0]))
-            maux = 1
+            if int(d1[1]) == 12:
+                yaux = 1                
         if int(d2[1]) >= int(d1[1]):
-            time.append(int(d2[1]) - int(d1[1]) - maux)
+            time.append(int(d2[1]) - int(d1[1]))
         else:
-            time.append(12 + int(d2[1]) - int(d1[1]) - maux)
+            time.append(12 + int(d2[1]) - int(d1[1]))
             yaux = 1
         time.append(int(d2[2]) - int(d1[2]) - yaux)
     return time    
@@ -158,8 +160,8 @@ print(f"Days since [1, 1, 0] of {date} = {daysfrom0(date)}")
 date = [2,1,1]
 print(f"Days since [1, 1, 0] of {date} = {daysfrom0(date)}")
 
-date1 = [10,1,1]
-date2 = [5,1,1]
+date1 = [10,10,1]
+date2 = [5,10,1]
 print(timebetweendates(date1,date2))
 date1 = [10,1,1]
 date2 = [15,1,1]
@@ -171,11 +173,11 @@ date1 = [10,2,2]
 date2 = [5,12,1]
 print(timebetweendates(date1,date2))
 date1 = [5,2,2]
-date2 = [5,12,1]
+date2 = [15,12,1]
 print(timebetweendates(date1,date2))
 date1 = [3,2,2]
 date2 = [5,12,1]
 print(timebetweendates(date1,date2))
 date1 = [28,2,5]
-date2 = [31,12,1]
+date2 = [31,10,1]
 print(timebetweendates(date1,date2))
