@@ -6,14 +6,15 @@ import time
 
 class Counter:
 
-    #mutex = Lock()
+    mutex = Lock()
 
     def __init__(self):
         self.counter=0
 
     def inc(self):
         #Counter.mutex.acquire()
-        self.counter+=1  # 1) get valor 2) incremento valor 3) set valor
+        with Counter.mutex:
+            self.counter+=1  # 1) get valor 2) incremento valor 3) set valor
         #Counter.mutex.release()
 
     def get_counter(self):

@@ -24,6 +24,8 @@ class MyThread (Thread):
 # Creamos nuevos threads
 thread1 = MyThread("Thread-1", 3)
 thread2 = MyThread("Thread-2", 5)
+thread1.daemon = True # Para que se cierren los threads si se cierra el hilo principal
+thread2.daemon = True #
 
 # Iniciamos threads y esperamos que terminen
 thread1.start()
