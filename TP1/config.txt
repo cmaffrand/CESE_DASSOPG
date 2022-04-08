@@ -3,5 +3,5 @@ name=cotizaciones.csv
 localport=4001
 pizarraAdd=127.0.0.1
 pizarraPort=4000
-mode=periodic
+mode=filechange
 period=30
