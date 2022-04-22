@@ -21,7 +21,6 @@ def close_connection(exception):
 #________________________________________________________
 
 
-
 @app.route('/')
 def hello_world():
 	db = get_db()
@@ -30,9 +29,6 @@ def hello_world():
 	d = c.fetchall()
 	c.close()
 	return "data:"+str(d)
-
-
-
 
 if __name__ == '__main__':
 	app.debug = True
